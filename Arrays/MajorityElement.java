@@ -6,21 +6,14 @@ public class MajorityElement {
     //The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
     // Follow-up: Could you solve the problem in linear time and in O(1) space?
 
-    public int majorityElement(int[] nums) {
-        int count = 0;
-        int candidate = 0;
-        for(int n : nums){
-            if(count == 0){
-                candidate = n;
-                count++;
-            }else{
-                if(candidate == n){
-                    count++;
-                }else{
-                    count--;
-                }
-            }
+  public int majorityElement(int[] nums) {
+    int count = 0;
+    int candidate = 0;
+    for (int num : nums) {
+        if (count == 0) {
+            candidate = num;
         }
-        return candidate;
+        count += (candidate == num) ? 1 : -1;
     }
+    return candidate;
 }
